@@ -14,9 +14,9 @@ NF4与FP4类似，是一种4-bit量化。相比FP4，NF4量化的分布更适应
 
 如00010001 uint8值为17，但是在源码中是先进行右移四位，因此也就是将uint8变成2个uint4进行解码。
 
-![2](https://github.com/xiewen98/QLoRA_YaYi/tree/main/img/1.png)
+![2](https://github.com/xiewen98/QLoRA_YaYi/tree/main/img/2.png)
 
-![3](https://github.com/xiewen98/QLoRA_YaYi/tree/main/img/1.png)
+![3](https://github.com/xiewen98/QLoRA_YaYi/tree/main/img/3.png)
 
 **运行方式**
 
