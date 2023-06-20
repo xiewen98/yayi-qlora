@@ -8,15 +8,16 @@ QLORA先将base_model做NF4（NormalFloat-4Bit）量化，再进行LoRA微调。
 
 NF4与FP4类似，是一种4-bit量化。相比FP4，NF4量化的分布更适应于正态分布的数据。
 
-![](https://github.com/xiewen98/QLoRA_YaYi/tree/main/img/1.png)
+![](https://github.com/xiewen98/QLoRA_YaYi/blob/main/img/1.png)
+
 
 经过NF4与FP4量化后的模型可以观察到，在bnb库中是将两个4bit量化的值合为一个uint8类型，因此在量化过程中会发现模型中QKV权重矩阵的size从4096* 12288变成25165824* 1，刚好size少了一倍，并且量化的值也不是0-15而是0-255。
 
 如00010001 uint8值为17，但是在源码中是先进行右移四位，因此也就是将uint8变成2个uint4进行解码。
 
-![](https://github.com/xiewen98/QLoRA_YaYi/tree/main/img/2.png)
+![](https://github.com/xiewen98/QLoRA_YaYi/blob/main/img/2.png)
 
-![](https://github.com/xiewen98/QLoRA_YaYi/tree/main/img/3.png)
+![](https://github.com/xiewen98/QLoRA_YaYi/blob/main/img/3.png)
 
 **运行方式**
 
